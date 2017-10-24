@@ -7,7 +7,6 @@ var UserSchema = new mongoose.Schema({
     profileId: Number
 });
 
-
 var User = mongoose.model('User', UserSchema);
 
 module.exports = User;

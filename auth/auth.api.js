@@ -1,12 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var User = require('./user');
-var userUtils = require('./userUtils.js');
 var authImpl = require('./auth.impl');
 var passportStrategies = require('./passportStrategies');
-var jwt = require('jsonwebtoken');
 var passport = require('passport');
-var config = require('../config');
 
 // init passport strategies
 passportStrategies.initStrategies();

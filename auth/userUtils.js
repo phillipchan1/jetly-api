@@ -1,79 +1,5 @@
 var User = require('./user');
 
-var authenticate = function(email, password) {
-	return new Promise(function(resolve, reject) {
-		User.authenticate(email, password, function(err, user) {
-			console.log(err);
-			if (err || !user) {
-				reject(err);
-			} else {
-				resolve(user);
-			}
-		});
-	});
-};
-
-var checkCredentialsPresent = function(email, password) {
-	if (email && password) {
-		return true;
-	} else {
-		return false;
-	}
-};
-
-var checkPassword = function(password) {
-	var response = {
-		success: false,
-		message: ''
-	};
-
-	if (password.length < 8) {
-		response.message = 'Password should be 8 characters long';
-	}
-
-	else if (password.search(/[a-z]/i) < 0) {
-		response.message = 'Password must contain at least one letter';
-	}
-
-	else if (password.search(/[0-9]/) < 0) {
-		response.message = 'Password must contain at least one number';
-	}
-
-	else {
-		response.success = true;
-	}
-
-	return response;
-};
-
-var checkEmail = function(email) {
-	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-};
-
-var createNewUser = function(email, password) {
-	return new Promise(function(resolve, reject) {
-		User.create({
-			email: email,
-			password: password,
-			config: {
-                apiSetup: false,
-                userType: 'user',
-                shopifyApi: {}
-            },
-            reports: {
-                createdOn: Date.now()
-            }
-		}, function(err, user) {
-			if (err) {
-				reject(err);
-			} else {
-				resolve(user);
-			}
-		});
-	});
-};
-
 var findUserById = function(id) {
 	return new Promise(function(resolve, reject) {
 		User.findById(id, function(err, user) {
@@ -138,11 +64,6 @@ var saveUserData = function(options) {
 };
 
 module.exports = {
-	authenticate: authenticate,
-	checkCredentialsPresent: checkCredentialsPresent,
-	checkPassword: checkPassword,
-	checkEmail: checkEmail,
-	createNewUser: createNewUser,
 	findUserById: findUserById,
 	findUserByEmail: findUserByEmail,
 	removeUserByEmail: removeUserByEmail,

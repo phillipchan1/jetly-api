@@ -12,7 +12,7 @@ var GoogleStrategy = require('passport-google-oauth20').Strategy;
 passport.use(new GoogleStrategy({
 		clientID: '1027177071681-sfncplgtv4d9v26lvbo82mtg4378onsr.apps.googleusercontent.com',
 		clientSecret: 'tJi-WQg1KSx7_Qb1OlzYDpLJ',
-		callbackURL: "http://localhost:3000/api/auth/google/callback"
+		callbackURL: "http://localhost:4200/api/auth/google/callback"
 	},
 	function(accessToken, refreshToken, profile, next) {
 		User.findOne({

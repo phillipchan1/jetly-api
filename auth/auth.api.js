@@ -44,8 +44,10 @@ router.get(
 
 // protected routes middleware
 // everything below is protected
-router.use(function(req, res, next) {
-	authImpl.protect(req, res, next);
-});
+router.use(
+	function(req, res, next) {
+		authImpl.protect(req, res, next);
+	}
+);
 
 module.exports = router;

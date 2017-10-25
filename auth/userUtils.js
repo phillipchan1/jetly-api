@@ -1,3 +1,4 @@
+'use strict';
 var User = require('./user');
 
 var findUserById = function(id) {
@@ -26,15 +27,18 @@ var findUserByEmail = function(email) {
 
 var removeUserByEmail = function(email) {
 	return new Promise(function(resolve, reject) {
-		User.findOneAndRemove({
-			email: email
-		}, function(err) {
-			if (err) {
-				reject(err);
-			} else {
-				resolve('success');
+		User.findOneAndRemove(
+			{
+				email: email
+			},
+			function(err) {
+				if (err) {
+					reject(err);
+				} else {
+					resolve('success');
+				}
 			}
-		});
+		);
 	});
 };
 
@@ -53,7 +57,7 @@ var saveUserData = function(options) {
 
 		user.markModified(options.category);
 
-		user.save(function (err, user) {
+		user.save(function(err, user) {
 			if (err) {
 				reject(err);
 			} else {

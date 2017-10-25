@@ -1,25 +1,24 @@
 {
-  "author": "",
-  "dependencies": {
-    "body-parser": "^1.15.2",
-    "chai": "^3.5.0",
-    "express": "^4.14.0",
-    "jsonwebtoken": "^7.4.3",
-    "mocha": "^3.2.0",
-    "mongoose": "^4.11.8",
-    "passport": "^0.4.0",
-    "passport-google-oauth20": "^1.0.0"
-  },
-  "devDependencies": {
-  },
-  "description": "jetly-app",
-  "license": "ISC",
-  "main": "index.js",
-  "name": "jetly-app",
-  "scripts": {
-    "start": "node index.js",
-    "test": "node test",
-    "dev": "nodemon"
-  },
-  "version": "1.0.1"
+	"author": "",
+	"dependencies": {
+		"body-parser": "^1.15.2",
+		"chai": "^3.5.0",
+		"express": "^4.14.0",
+		"jsonwebtoken": "^7.4.3",
+		"mocha": "^3.2.0",
+		"mongoose": "^4.11.8",
+		"passport": "^0.4.0",
+		"passport-google-oauth20": "^1.0.0"
+	},
+	"devDependencies": {},
+	"description": "jetly-app",
+	"license": "ISC",
+	"main": "index.js",
+	"name": "jetly-app",
+	"scripts": {
+		"start": "node index.js",
+		"test": "./node_modules/.bin/mocha '**/*.spec.js' --reporter  spec",
+		"dev": "nodemon"
+	},
+	"version": "1.0.1"
 }

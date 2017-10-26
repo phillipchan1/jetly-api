@@ -20,20 +20,20 @@ router.get(
 	passport.authenticate('google', {
 		failWithError: true
 	}),
-	function(req, res, next) {
-		authImpl.authenticate(req, res, next, 'google');
+	function(req, res, callback) {
+		authImpl.authenticate(req, res, callback, 'google');
 	}
 );
 
 // verify a json web token
-router.get('/verify', function(req, res, next) {
-	authImpl.verify(req, res, next);
+router.get('/verify', function(req, res, callback) {
+	authImpl.verify(req, res, callback);
 });
 
 // protected routes middleware
 // everything below is protected
-router.use(function(req, res, next) {
-	authImpl.protect(req, res, next);
+router.use(function(req, res, callback) {
+	authImpl.protect(req, res, callback);
 });
 
 module.exports = router;

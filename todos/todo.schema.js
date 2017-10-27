@@ -34,7 +34,7 @@ var todoSchema = new mongoose.Schema({
 	name: String,
 	startOn: Date,
 	timeSpentInProgress: Number,
-	userId: Number
+	userId: String
 });
 
 var User = mongoose.model('Todo', todoSchema);

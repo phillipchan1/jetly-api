@@ -9,30 +9,33 @@ router.get('/socket', function(req, res, callback) {
 	});
 });
 
-// new todo
-router.post('/todo/', function(req, res, callback) {
-	todosImpl.createTodoforUser(req.user._id, req.body, function(todo) {
-		if (todo) {
-			res.json({
-				success: true,
-				data: todo
-			});
+// get todos of user
+router.get('/', function(req, res, callback) {
+	todosImpl.getTodosforUser(req.user._id, req.body, function(err, todos) {
+		if (err) {
+			res.json({ success: false, message: err });
 		} else {
-			res.json({
-				success: false
-			});
+			res.json({ success: true, data: todos });
 		}
 	});
 });
 
-// get todos of user
-router.get('/todos/:userId', function(req, res, callback) {});
+// new todo
+router.post('/todo/', function(req, res, callback) {
+	todosImpl.createTodoforUser(req.user._id, req.body, function(err, todo) {
+		if (err) {
+			res.json({ success: false, message: err });
+		} else {
+			res.json({ success: true, data: todo });
+		}
+	});
+});
 
 // edit todo
-router.put('/todo/:userId', function(req, res, callback) {});
+router.put('/todo/', function(req, res, callback) {});
 
 // delete todo
-router.delete('/todo/:userId', function(req, res, callback) {});
+router.delete('/todo/', function(req, res, callback) {});
 
 // new comment
 

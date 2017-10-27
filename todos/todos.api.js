@@ -3,12 +3,27 @@ var express = require('express');
 var router = express.Router();
 var todosImpl = require('./todos.impl');
 
-router.get('/test', function(req, res, callback) {
-	console.log('here');
+router.get('/socket', function(req, res, callback) {
+	res.json({
+		hi: 'hi'
+	});
 });
 
 // new todo
-router.post('/todo/:userId', function(req, res, callback) {});
+router.post('/todo/', function(req, res, callback) {
+	todosImpl.createTodoforUser(req.user._id, req.body, function(todo) {
+		if (todo) {
+			res.json({
+				success: true,
+				data: todo
+			});
+		} else {
+			res.json({
+				success: false
+			});
+		}
+	});
+});
 
 // get todos of user
 router.get('/todos/:userId', function(req, res, callback) {});

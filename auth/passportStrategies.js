@@ -1,7 +1,7 @@
 'use strict';
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
-var User = require('../user/user');
+var User = require('../user/user.schema');
 
 var strategies = [
 	// google strategy

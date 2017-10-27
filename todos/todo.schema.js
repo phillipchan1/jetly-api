@@ -12,7 +12,10 @@ var todoSchema = new mongoose.Schema({
 			author: String
 		}
 	],
-	createdOn: Date,
+	createdOn: {
+		type: Date,
+		default: Date.now()
+	},
 	complete: {
 		type: Boolean,
 		default: false
@@ -24,7 +27,10 @@ var todoSchema = new mongoose.Schema({
 		type: String,
 		default: 'todos'
 	},
-	lastUpdated: Date,
+	lastUpdated: {
+		type: Date,
+		default: Date.now()
+	},
 	name: String,
 	startOn: Date,
 	timeSpentInProgress: Number,

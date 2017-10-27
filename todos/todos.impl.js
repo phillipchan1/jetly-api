@@ -16,7 +16,4 @@ var getTodosforUser = function(userId, queryOptions, callback) {
 	});
 };
 
-module.exports = {
-	createTodo,
-	getTodosforUser
-};
+module.exports = { createTodoforUser, getTodosforUser };

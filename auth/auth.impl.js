@@ -2,7 +2,7 @@
 var passport = require('passport');
 var config = require('../config');
 var jwt = require('jsonwebtoken');
-var User = require('./user');
+var User = require('../user/user');
 var url = require('url');
 
 var authenticate = function(req, res, next, provider) {

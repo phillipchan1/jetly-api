@@ -26,6 +26,7 @@ var todoSchema = new mongoose.Schema({
 	},
 	lastUpdated: Date,
 	name: String,
+	startOn: Date,
 	timeSpentInProgress: Number,
 	userId: Number
 });

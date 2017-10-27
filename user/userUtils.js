@@ -1,5 +1,5 @@
 'use strict';
-var User = require('./user');
+var User = require('./user.schema');
 
 var findUserById = function(id) {
 	return new Promise(function(resolve, reject) {

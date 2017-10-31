@@ -31,7 +31,7 @@ router.get(
 );
 
 // verify a json web token
-router.get('/verify', function(req, res, callback) {
+router.get('/auth/verify', function(req, res, callback) {
 	authImpl.verify(req, res, callback);
 });
 

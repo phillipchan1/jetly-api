@@ -33,19 +33,6 @@ var routes = require('./app.routes.js');
 
 app.use('/api', routes);
 
-
-
-app.all('/*', function ( req, res ) {
-	res
-	.status(200)
-	.set(
-			{
-				'content-type': 'text/html; charset=utf-8'
-			}
-	)
-	.sendFile(process.cwd() + '/client/dist/index.html');
-});
-
 app.listen(process.env.PORT || 3000, function() {
 	console.log('Service running on 3000');
 });

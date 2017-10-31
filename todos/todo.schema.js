@@ -31,7 +31,10 @@ var todoSchema = new mongoose.Schema({
 		type: Date,
 		default: Date.now()
 	},
-	name: String,
+	name: {
+		type: String,
+		required: true
+	},
 	startOn: Date,
 	timeSpentInProgress: Number,
 	userId: String

@@ -41,6 +41,7 @@ var authenticate = function(req, res, next, provider) {
 var protect = function(req, res, next) {
 	var token =
 		req.headers.Authorization ||
+		req.headers.authorization ||
 		req.query.token ||
 		req.headers['x-access-token'] ||
 		req.headers.token;
